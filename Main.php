@@ -27,40 +27,40 @@ else
 
 print "SMTP host: ";
 fscanf($stream, "%s\n", $smtp);
-print $stream != STDIN?$smtp."\n":"";
+print ($stream != STDIN?$smtp."\n":"");
 print "SMTP user: ";
 fscanf($stream, "%s\n", $user);
-print $stream != STDIN?$user."\n":"";
+print ($stream != STDIN?$user."\n":"");
 print "SMTP password: ";
 fscanf($stream, "%s\n", $password);
-print $stream != STDIN?$password."\n":"";
+print ($stream != STDIN?$password."\n":"");
 print "SMTPSecure (encryption type): ";
 fscanf($stream, "%s\n", $encryptionType);
-print $stream != STDIN?$encryptionType."\n":"";
+print ($stream != STDIN?$encryptionType."\n":"");
 print "SMTP port: ";
 fscanf($stream, "%d\n", $smtpPort);
-print $stream != STDIN?$smtpPort."\n":"";
+print ($stream != STDIN?$smtpPort."\n":"");
 print "From email: ";
 fscanf($stream, "%s\n", $fromEmail);
-print $stream != STDIN?$fromEmail."\n":"";
+print ($stream != STDIN?$fromEmail."\n":"");
 print "from name: ";
 fscanf($stream, "%s\n", $nameF);
-print $stream != STDIN?$nameF."\n":"";
+print ($stream != STDIN?$nameF."\n":"");
 print "to: ";
 fscanf($stream, "%s\n", $to);
-print $stream != STDIN?$to."\n":"";
+print ($stream != STDIN?$to."\n":"");
 print "Subject: ";
 fscanf($stream, "%s\n", $subject);
-print $stream != STDIN?$subject."\n":"";
+print ($stream != STDIN?$subject."\n":"");
 print "Body file path: ";
 fscanf($stream, "%s\n", $body);
-print $stream != STDIN?$body."\n":"";
+print ($stream != STDIN?$body."\n":"");
 print "Attachment file path (blank for not attachment): ";
 fscanf($stream, "%s\n", $attachment);
-print $stream != STDIN?$attachment."\n":"";
+print ($stream != STDIN?$attachment."\n":"");
 print "Send time (h:m:s): ";
 fscanf($stream, "%s\n", $time);
-print $stream != STDIN?$time."\n":"";
+print (($stream != STDIN)?$time."\n":"");
 
 $time = explode(":", $time);
 //TODO check time exploded length
@@ -70,7 +70,7 @@ if($time-time()>1)
 
 $mail = new PHPMailer();
 
-//$mail->SMTPDebug = 4;                               // Enable verbose debug output
+//$mail->SMTPDebug = 4;                              // Enable verbose debug output
 
 $mail->isSMTP(); // Set mailer to use SMTP
 $mail->Host = $smtp;  // Specify main and backup SMTP servers
