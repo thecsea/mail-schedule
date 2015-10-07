@@ -1,0 +1,12 @@
+smtp.office365.com
+yyy@zzz.com
+pass
+tls
+587
+aaa@zzz.com
+Name
+bbb@hhh.com
+subject
+bodyExample.txt
+
+16:05:00
