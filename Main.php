@@ -58,6 +58,9 @@ print ($stream != STDIN?$body."\n":"");
 print "Attachment file path (blank for not attachment): ";
 fscanf($stream, "%s\n", $attachment);
 print ($stream != STDIN?$attachment."\n":"");
+print "Attachment cc, separated by semicolon (blank for not attachment): ";
+fscanf($stream, "%s\n", $cc);
+print ($stream != STDIN?$cc."\n":"");
 print "Send time (h:m:s): ";
 fscanf($stream, "%s\n", $time);
 print (($stream != STDIN)?$time."\n":"");
@@ -84,8 +87,11 @@ $mail->setFrom($fromEmail, $nameF);
 $mail->addAddress($to);     // Add a recipient
 //$mail->addAddress('ellen@example.com');               // Name is optional
 $mail->addReplyTo($fromEmail, $nameF);
-//$mail->addCC('cc@example.com');
-//$mail->addBCC('bcc@example.com');
+$cc = explode(";", $cc);
+if(count($cc))
+    foreach($cc as $value)
+        $mail->addCC($value);
+//$mail->addBCC('bcc@examplie.com');
 
 //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name

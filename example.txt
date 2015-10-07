@@ -9,4 +9,5 @@ bbb@hhh.com
 subject
 bodyExample.txt
 
+aaa@gg.com;bbb@ggg.com
 16:05:00
